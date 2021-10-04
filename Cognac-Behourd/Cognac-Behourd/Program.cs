@@ -30,8 +30,6 @@ namespace Cognac_Behourd
 
             var ws1 = wbook.Worksheet(1);
             var data = ws1.Cell("A2").GetValue<string>();
-
-
         }
     }
 }

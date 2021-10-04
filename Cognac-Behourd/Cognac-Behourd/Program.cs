@@ -6,7 +6,7 @@ namespace Cognac_Behourd
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Yo mec \n Veuillez choisir un menu : \n\n 1. Afficher les adhérents \n 2. Ajouter un nouvel adhérent \n 3. Créer une session");
+            Console.WriteLine("Yo mec \n Veuillez choisir un menu : \n\n 1. Afficher les adhérents \n 2. Ajouter un nouvel adhérent \n 3. Créer un e session");
             string choice = Console.ReadLine();
             switch (choice)
             {

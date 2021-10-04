@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Volantis\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Volantis\\.nuget\\packages"
+    ]
+  }
+}

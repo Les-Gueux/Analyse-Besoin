@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\Volantis\\.nuget\\packages\\": {}
+    "C:\\Users\\franc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Volantis\\EPSI\\I1\\Analyse de besoin et cahier des charges\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj",
+      "projectUniqueName": "C:\\Users\\franc\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj",
       "projectName": "Cognac-Behourd",
-      "projectPath": "F:\\Volantis\\EPSI\\I1\\Analyse de besoin et cahier des charges\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj",
-      "packagesPath": "C:\\Users\\Volantis\\.nuget\\packages\\",
-      "outputPath": "F:\\Volantis\\EPSI\\I1\\Analyse de besoin et cahier des charges\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\obj\\",
+      "projectPath": "C:\\Users\\franc\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj",
+      "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\franc\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Volantis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

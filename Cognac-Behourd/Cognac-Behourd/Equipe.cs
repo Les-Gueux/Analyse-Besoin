@@ -6,5 +6,13 @@ namespace Cognac_Behourd
 {
     class Equipe
     {
+        private string Numero;
+        private List<Personne> ListePersonne;
+
+        public Equipe( string numero, List<Personne> listePersonne)
+        {
+            Numero = numero;
+            ListePersonne = listePersonne;
+        }
     }
 }

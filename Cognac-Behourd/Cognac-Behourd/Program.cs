@@ -3,7 +3,6 @@ using ClosedXML.Excel;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Cognac_Behourd
 {

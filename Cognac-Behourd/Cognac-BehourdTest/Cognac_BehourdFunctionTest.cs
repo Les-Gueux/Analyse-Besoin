@@ -14,21 +14,23 @@ namespace Cognac_BehourdTest
 
             List<Personne> ListePaticipant = new List<Personne>();
 
-            Personne p = new Personne("Jo", "e", 65, 17);
+            Personne p = new Personne("Jo", "e", 65, 2004);
             ListePaticipant.Add(p);
 
-            p = new Personne("Yank", "a", 75, 27);
+            p = new Personne("Yank", "a", 75, 1993);
             ListePaticipant.Add(p);
 
-            p = new Personne("Jack", "b", 52, 16);
+            p = new Personne("Jack", "b", 52, 2005);
             ListePaticipant.Add(p);
 
-            p = new Personne("Ber", "c", 70, 20);
+            p = new Personne("Ber", "c", 70, 2001);
             ListePaticipant.Add(p);
 
             s.creation_equipe(ListePaticipant);
 
             Assert.Equals(s.ListeEquipe[0].ListePersonne.Count, s.ListeEquipe[1].ListePersonne.Count);
         }
+
+        
     }
 }

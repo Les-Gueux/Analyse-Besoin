@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Cognac_Behourd
 {
-    class Equipe
+    public class Equipe
     {
         private string Numero;
         private List<Personne> ListePersonne;

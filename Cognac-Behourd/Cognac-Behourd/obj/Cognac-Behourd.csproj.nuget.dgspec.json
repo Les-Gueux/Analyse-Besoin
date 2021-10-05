@@ -1,35 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joach\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj": {}
+    "C:\\Users\\franc\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joach\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj": {
+    "C:\\Users\\franc\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joach\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj",
+        "projectUniqueName": "C:\\Users\\franc\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj",
         "projectName": "Cognac-Behourd",
-        "projectPath": "C:\\Users\\joach\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj",
-        "packagesPath": "C:\\Users\\joach\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joach\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\obj\\",
+        "projectPath": "C:\\Users\\franc\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj",
+        "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\franc\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\joach\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -40,8 +37,14 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.95.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -57,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

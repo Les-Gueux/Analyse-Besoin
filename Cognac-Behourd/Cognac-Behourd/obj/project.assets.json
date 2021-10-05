@@ -66,15 +66,6 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
-        "type": "package",
-        "compile": {
-          "lib/net20/Microsoft.Office.Interop.Excel.dll": {}
-        },
-        "runtime": {
-          "lib/net20/Microsoft.Office.Interop.Excel.dll": {}
-        }
-      },
       "Microsoft.Win32.Primitives/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1468,18 +1459,6 @@
         "microsoft.netcore.targets.1.1.0.nupkg.sha512",
         "microsoft.netcore.targets.nuspec",
         "runtime.json"
-      ]
-    },
-    "Microsoft.Office.Interop.Excel/15.0.4795.1000": {
-      "sha512": "DfceS96ustwfL8EOJNNRtpk6b0RylhjNpgeeemuvi9X4GYks2UTeAimjSrdFEfuqRo5ibZ4Sd0gJIeDr9gMa6Q==",
-      "type": "package",
-      "path": "microsoft.office.interop.excel/15.0.4795.1000",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net20/Microsoft.Office.Interop.Excel.dll",
-        "microsoft.office.interop.excel.15.0.4795.1000.nupkg.sha512",
-        "microsoft.office.interop.excel.nuspec"
       ]
     },
     "Microsoft.Win32.Primitives/4.3.0": {
@@ -4794,29 +4773,30 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "ClosedXML >= 0.95.4",
-      "Microsoft.Office.Interop.Excel >= 15.0.4795.1000"
+      "ClosedXML >= 0.95.4"
     ]
   },
   "packageFolders": {
-    "/Users/georges/.nuget/packages/": {}
+    "C:\\Users\\franc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/georges/Desktop/EPSI/I1/Analyse de besoin et cahier des charges/Exercice/Analyse-Besoin/Analyse-Besoin/Cognac-Behourd/Cognac-Behourd/Cognac-Behourd.csproj",
+      "projectUniqueName": "C:\\Users\\franc\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj",
       "projectName": "Cognac-Behourd",
-      "projectPath": "/Users/georges/Desktop/EPSI/I1/Analyse de besoin et cahier des charges/Exercice/Analyse-Besoin/Analyse-Besoin/Cognac-Behourd/Cognac-Behourd/Cognac-Behourd.csproj",
-      "packagesPath": "/Users/georges/.nuget/packages/",
-      "outputPath": "/Users/georges/Desktop/EPSI/I1/Analyse de besoin et cahier des charges/Exercice/Analyse-Besoin/Analyse-Besoin/Cognac-Behourd/Cognac-Behourd/obj/",
+      "projectPath": "C:\\Users\\franc\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\Cognac-Behourd.csproj",
+      "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\franc\\source\\repos\\Analyse-Besoin\\Cognac-Behourd\\Cognac-Behourd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/georges/.config/NuGet/NuGet.Config"
+        "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4838,10 +4818,6 @@
           "ClosedXML": {
             "target": "Package",
             "version": "[0.95.4, )"
-          },
-          "Microsoft.Office.Interop.Excel": {
-            "target": "Package",
-            "version": "[15.0.4795.1000, )"
           }
         },
         "imports": [
@@ -4859,20 +4835,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Office.Interop.Excel 15.0.4795.1000' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.Office.Interop.Excel",
-      "targetGraphs": [
-        "net5.0"
-      ]
-    }
-  ]
+  }
 }

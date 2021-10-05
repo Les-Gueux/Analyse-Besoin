@@ -8,27 +8,24 @@ namespace Cognac_BehourdTest
     public class Cognac_BehourdFunctionTest
     {
         [TestMethod]
-        public void verifier_que_les_equipes_sont_equlibre_en_nombre_quand_les_joueur_sont_paire()
+        public void vérifier_que_les_équipes_sont_equlibré_en_nombre_quand_les_joueur_sont_paire()
         {
-            Session s = new Session();
 
-            List<Personne> ListePaticipant = new List<Personne>();
+            List<Personne> ListeParticipant = new List<Personne>();
 
-            Personne p = new Personne("Jo", "e", 65, 2004);
-            ListePaticipant.Add(p);
+            ListeParticipant.Add(new Personne("Jo", "e", 65, 2004));
 
-            p = new Personne("Yank", "a", 75, 1993);
-            ListePaticipant.Add(p);
+            ListeParticipant.Add(new Personne("Yank", "a", 75, 1993));
 
-            p = new Personne("Jack", "b", 52, 2005);
-            ListePaticipant.Add(p);
+            ListeParticipant.Add(new Personne("Jack", "b", 52, 2005));
 
-            p = new Personne("Ber", "c", 70, 2001);
-            ListePaticipant.Add(p);
+            ListeParticipant.Add(new Personne("Ber", "c", 70, 2001));
 
-            s.creation_equipe(ListePaticipant);
+            Partie partie = new Partie(ListeParticipant);
 
-            Assert.Equals(s.ListeEquipe[0].ListePersonne.Count, s.ListeEquipe[1].ListePersonne.Count);
+            session.lancer_partie();
+
+            Assert.Equals(partie.ListeEquipe[0].Count, partie.ListeEquipe[1].Count);
         }
 
         

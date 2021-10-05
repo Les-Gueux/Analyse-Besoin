@@ -10,6 +10,7 @@ namespace Cognac_BehourdTest
         [TestMethod]
         public void vérifier_que_les_équipes_sont_equlibré_en_nombre_quand_les_joueur_sont_paire()
         {
+            Session session = new Session();
 
             List<Personne> ListeParticipant = new List<Personne>();
 

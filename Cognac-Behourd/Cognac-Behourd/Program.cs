@@ -11,18 +11,15 @@ namespace Cognac_Behourd
     {
         static void Main(string[] args)
         {
-            ManageMenu();
-
-
             var manageExcel = new ManageExcel();
 
             var collectionPersonnes = manageExcel.GetPersonnes();
 
-            foreach(var personne in collectionPersonnes)
+            foreach (var personne in collectionPersonnes)
             {
                 Console.WriteLine(personne.Nom);
             }
-            
+            ManageMenu();           
         }
 
         public static void ManageMenu()
@@ -32,29 +29,24 @@ namespace Cognac_Behourd
             using var wbook = new XLWorkbook(path);
             collectionCells = GetCollectionCellsByRowssUsed(collectionCells, wbook);
 
-            Console.WriteLine("Yo mec \n Veuillez choisir un menu : \n\n 1. Afficher les adhérents \n 2. Ajouter un nouvel adhérent \n 3. Créer une session");
-            string choice = Console.ReadLine();
-
-            if(choice == "1")
+            while (true)
             {
-                BuildMenuPrintAdherent(collectionCells);
-            }
-            if(choice == "2")
-            {
-                AddAdherent();
-            }
-            
-            switch (choice)
-            {
-                case "1":
-                    BuildMenuPrintAdherent(collectionCells);
-                    break;
-                case "2":
-                    break;
-                case "3":
-                    break;
-                default:
-                    break;
+                Console.WriteLine("Yo mec \n Veuillez choisir un menu : \n\n 1. Afficher les adhérents \n 2. Ajouter un nouvel adhérent \n 3. Créer une session");
+                string choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "1":
+                        Console.Clear();
+                        BuildMenuPrintAdherent(collectionCells);
+                        break;
+                    case "2":
+                        break;
+                    case "3":
+                        break;
+                    default:
+                        return;
+                        break;
+                }
             }
         }
 

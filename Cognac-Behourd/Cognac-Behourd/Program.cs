@@ -3,6 +3,7 @@ using ClosedXML.Excel;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Cognac_Behourd.Utils;
 
 namespace Cognac_Behourd
 {
@@ -11,6 +12,16 @@ namespace Cognac_Behourd
         static void Main(string[] args)
         {
             ManageMenu();
+
+
+            var manageExcel = new ManageExcel();
+
+            var collectionPersonnes = manageExcel.GetPersonnes();
+
+            foreach(var personne in collectionPersonnes)
+            {
+                Console.WriteLine(personne.Nom);
+            }
             
         }
 
@@ -55,16 +66,14 @@ namespace Cognac_Behourd
 
         public static string InputAdherent(string prop)
         {
-            Console.WriteLine($"{prop}");
+            Console.WriteLine($"{prop}:");
             return Console.ReadLine();
         }
 
         public static void AddAdherent()
         {
-            var lastNameAdherent = InputAdherent("Nom");
-            var firstNameAdherent = InputAdherent("Prenom");
-            var weightAdherent = InputAdherent("Poids");
-            var yearAdherent = InputAdherent("Date d'adhesion");
+            Personne Personne = new Personne(InputAdherent("Nom"), InputAdherent("Prenom"), int.Parse(InputAdherent("Poids")), int.Parse(InputAdherent("Date d'adhesion")));
+
         }
 
         public static string BuildPathToExcel()

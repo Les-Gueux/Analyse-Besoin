@@ -12,6 +12,7 @@
     <None Remove="Microsoft.Office.Interop.Excel" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Extensions\" />
     <Folder Include="Files\" />
   </ItemGroup>
   <ItemGroup>

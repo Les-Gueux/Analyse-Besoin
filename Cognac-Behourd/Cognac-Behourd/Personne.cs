@@ -4,15 +4,17 @@ using System.Text;
 
 namespace Cognac_Behourd
 {
-    class Personne
+    public class Personne
     {
-        private string Nom;
-        private float Poid;
-        private int Anciente;
+        public string Nom { get; set; }
+        public string Prenom { get; set; }
+        public int Poid { get; set; }
+        public int Anciente { get; set; }
 
-        public Personne(string nom, float poid, int anciente)
+        public Personne(string nom, string prenom, int poid, int anciente)
         {
             Nom = nom;
+            Prenom = prenom;
             Poid = poid;
             Anciente = anciente;
         }

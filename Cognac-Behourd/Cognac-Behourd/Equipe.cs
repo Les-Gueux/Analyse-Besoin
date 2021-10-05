@@ -9,10 +9,9 @@ namespace Cognac_Behourd
         private string Numero;
         private List<Personne> ListePersonne;
 
-        public Equipe( string numero, List<Personne> listePersonne)
+        public Equipe( string numero)
         {
             Numero = numero;
-            ListePersonne = listePersonne;
         }
     }
 }

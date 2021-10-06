@@ -15,10 +15,6 @@ namespace Cognac_Behourd
 
             var collectionPersonnes = manageExcel.GetPersonnes();
 
-            foreach (var personne in collectionPersonnes)
-            {
-                Console.WriteLine(personne.Nom);
-            }
             ManageMenu();           
         }
 
@@ -40,6 +36,7 @@ namespace Cognac_Behourd
                         BuildMenuPrintAdherent(collectionCells);
                         break;
                     case "2":
+                        AddAdherent(wbook, collectionCells, path);
                         break;
                     case "3":
                         break;
@@ -62,9 +59,19 @@ namespace Cognac_Behourd
             return Console.ReadLine();
         }
 
-        public static void AddAdherent()
+        public static void AddAdherent(XLWorkbook wbook, List<IXLCells> CollectionCells, string path)
         {
-            Personne Personne = new Personne(InputAdherent("Nom"), InputAdherent("Prenom"), int.Parse(InputAdherent("Poids")), int.Parse(InputAdherent("Date d'adhesion")));
+
+            var ws1 = wbook.Worksheet(1);
+
+            string letter = getLastCell(CollectionCells);
+
+            var ws2 = ws1.Range("D4");
+            ws2.Row(1).InsertRowsAbove(2);
+
+            wbook.SaveAs(path);
+
+            //Personne Personne = new Personne(InputAdherent("Nom"), InputAdherent("Prenom"), int.Parse(InputAdherent("Poids")), int.Parse(InputAdherent("Date d'adhesion")));
 
         }
 
@@ -114,6 +121,22 @@ namespace Cognac_Behourd
             });
 
             Console.WriteLine(menu.Trim());
+        }
+
+        public static string getLastCell(List<IXLCells> CollectionCells)
+        {
+            var letter = "";
+
+            CollectionCells.ForEach(cells => {
+
+                foreach (var cell in cells)
+                {
+                    letter = cell.Address.ColumnLetter;
+                    
+                }
+
+            });
+            return letter;
         }
     }
 }

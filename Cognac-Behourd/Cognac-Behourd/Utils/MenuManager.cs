@@ -41,6 +41,8 @@ namespace Cognac_Behourd.Utils
                         AddAdherent();
                         break;
                     case "3":
+                        Console.Clear();
+                        CreateSession();
                         break;
                     default:
                         break;
@@ -50,6 +52,16 @@ namespace Cognac_Behourd.Utils
             {
                 PrintPrincipalMenu();
             }
+        }
+
+        private void CreateSession()
+        {
+            Console.WriteLine("Une session a été créé !");
+
+            Session session = new Session(this.collectionPersonne);
+            session.GeneratePartie();
+
+            PrintPrincipalMenu();
         }
 
         private void AddAdherent()

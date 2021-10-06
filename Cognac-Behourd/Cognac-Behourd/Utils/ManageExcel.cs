@@ -24,15 +24,7 @@ namespace Cognac_Behourd.Utils
             var dirPath = Path.DirectorySeparatorChar;
 
             var arrayPath = Directory.GetCurrentDirectory().Split(dirPath);
-            string path = "";
-
-            for (var i = 0; i < arrayPath.Length; i++)
-            {
-                if (i < arrayPath.Length - 3)
-                {
-                    path += i == 0 ? $"{arrayPath[i]}" : $"{dirPath}{arrayPath[i]}";
-                }
-            }
+            string path = string.Join('\\', arrayPath.SkipLast(3));
 
             return $"{path}{dirPath}Files{dirPath}test.xlsx";
         }

@@ -41,6 +41,7 @@ namespace Cognac_Behourd.Utils
                         AddAdherent();
                         break;
                     case "3":
+                        Console.Clear();
                         CreateSession();
                         break;
                     default:

@@ -15,10 +15,6 @@ namespace Cognac_Behourd
 
             var collectionPersonnes = manageExcel.GetPersonnes();
 
-            foreach (var personne in collectionPersonnes)
-            {
-                Console.WriteLine(personne.Nom);
-            }
             ManageMenu();           
         }
 
@@ -40,6 +36,7 @@ namespace Cognac_Behourd
                         BuildMenuPrintAdherent(collectionCells);
                         break;
                     case "2":
+                        AddAdherent(wbook, collectionCells, path);
                         break;
                     case "3":
                         break;
@@ -62,9 +59,24 @@ namespace Cognac_Behourd
             return Console.ReadLine();
         }
 
-        public static void AddAdherent()
+        public static void AddAdherent(XLWorkbook wbook, List<IXLCells> CollectionCells, string path)
         {
-            Personne Personne = new Personne(InputAdherent("Nom"), InputAdherent("Prenom"), int.Parse(InputAdherent("Poids")), int.Parse(InputAdherent("Date d'adhesion")));
+
+            var ws1 = wbook.Worksheet(1);
+
+            string columnNumber = Convert.ToString(getLastCell(CollectionCells) + 1);
+            var nom = InputAdherent("Nom");
+            var prenom = InputAdherent("Prenom");
+            var poids = InputAdherent("Poids");
+            var ancienete = InputAdherent("Date d'adhesion");
+            ws1.Cell("A" + columnNumber).RichText.AddText(nom);
+            ws1.Cell("B" + columnNumber).RichText.AddText(prenom);
+            ws1.Cell("C" + columnNumber).RichText.AddText(poids);
+            ws1.Cell("D" + columnNumber).RichText.AddText(ancienete);
+
+            wbook.SaveAs(path); 
+
+            Personne Personne = new Personne(nom, prenom, int.Parse(poids), int.Parse(ancienete));
 
         }
 
@@ -114,6 +126,22 @@ namespace Cognac_Behourd
             });
 
             Console.WriteLine(menu.Trim());
+        }
+
+        public static int getLastCell(List<IXLCells> CollectionCells)
+        {
+            var columnNumber = 1;
+
+            CollectionCells.ForEach(cells => {
+
+                foreach (var cell in cells)
+                {
+                    columnNumber = cell.Address.RowNumber;
+                    
+                }
+
+            });
+            return columnNumber;
         }
     }
 }

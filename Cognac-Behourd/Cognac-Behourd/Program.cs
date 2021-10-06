@@ -64,14 +64,19 @@ namespace Cognac_Behourd
 
             var ws1 = wbook.Worksheet(1);
 
-            string letter = getLastCell(CollectionCells);
+            string columnNumber = Convert.ToString(getLastCell(CollectionCells) + 1);
+            var nom = InputAdherent("Nom");
+            var prenom = InputAdherent("Prenom");
+            var poids = InputAdherent("Poids");
+            var ancienete = InputAdherent("Date d'adhesion");
+            ws1.Cell("A" + columnNumber).RichText.AddText(nom);
+            ws1.Cell("B" + columnNumber).RichText.AddText(prenom);
+            ws1.Cell("C" + columnNumber).RichText.AddText(poids);
+            ws1.Cell("D" + columnNumber).RichText.AddText(ancienete);
 
-            var ws2 = ws1.Range("D4");
-            ws2.Row(1).InsertRowsAbove(2);
+            wbook.SaveAs(path); 
 
-            wbook.SaveAs(path);
-
-            //Personne Personne = new Personne(InputAdherent("Nom"), InputAdherent("Prenom"), int.Parse(InputAdherent("Poids")), int.Parse(InputAdherent("Date d'adhesion")));
+            Personne Personne = new Personne(nom, prenom, int.Parse(poids), int.Parse(ancienete));
 
         }
 
@@ -123,20 +128,20 @@ namespace Cognac_Behourd
             Console.WriteLine(menu.Trim());
         }
 
-        public static string getLastCell(List<IXLCells> CollectionCells)
+        public static int getLastCell(List<IXLCells> CollectionCells)
         {
-            var letter = "";
+            var columnNumber = 1;
 
             CollectionCells.ForEach(cells => {
 
                 foreach (var cell in cells)
                 {
-                    letter = cell.Address.ColumnLetter;
+                    columnNumber = cell.Address.RowNumber;
                     
                 }
 
             });
-            return letter;
+            return columnNumber;
         }
     }
 }

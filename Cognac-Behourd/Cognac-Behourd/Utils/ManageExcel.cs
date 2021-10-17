@@ -50,7 +50,7 @@ namespace Cognac_Behourd.Utils
                 var poids = CollectionCells.ElementAt(2).Value.ToString();
                 var annneeAdhesion = CollectionCells.ElementAt(3).Value.ToString();
 
-                CollectionPersonne.Add(new Personne(nom, prenom, int.Parse(poids.Remove(poids.Length - 2)), int.Parse(annneeAdhesion)));   
+                CollectionPersonne.Add(new Personne(nom, prenom, int.Parse(poids), int.Parse(annneeAdhesion)));   
             }
 
             return CollectionPersonne;

@@ -23,10 +23,10 @@ namespace Cognac_Behourd
             List<IXLCells> collectionCells = new();
             var path = BuildPathToExcel();
             using var wbook = new XLWorkbook(path);
-            collectionCells = GetCollectionCellsByRowssUsed(collectionCells, wbook);
 
             while (true)
             {
+                collectionCells = GetCollectionCellsByRowssUsed(collectionCells, wbook);
                 Console.WriteLine("Yo mec \n Veuillez choisir un menu : \n\n 1. Afficher les adhérents \n 2. Ajouter un nouvel adhérent \n 3. Créer une session");
                 string choice = Console.ReadLine();
                 switch (choice)

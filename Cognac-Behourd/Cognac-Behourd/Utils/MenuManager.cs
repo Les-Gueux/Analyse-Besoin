@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using ClosedXML.Excel;
 namespace Cognac_Behourd.Utils
 {
     public class MenuManager
@@ -15,42 +12,51 @@ namespace Cognac_Behourd.Utils
         public MenuManager()
         {
             this.manageExcel = new ManageExcel();
-            
+            this.collectionPersonne = this.manageExcel.GetPersonnes();
+
             PrintPrincipalMenu();
         }
 
         private void PrintPrincipalMenu()
         {
-            this.collectionPersonne = this.manageExcel.GetPersonnes();
+            List<IXLCells> collectionCells = new();
+            var path = this.manageExcel.GetPath();
+            using var wbook = this.manageExcel.GetExcelFile();
 
-            Console.WriteLine("Yo mec \n Veuillez choisir un menu : \n\n 1. Afficher les adhérents \n 2. Ajouter un nouvel adhérent \n 3. Créer une session");
-
-            try
+            while (true)
             {
-                string choice = Console.ReadLine();
+                collectionCells = GetCollectionCellsByRowssUsed(collectionCells, wbook);
+                Console.WriteLine("Veuillez choisir un menu : \n\n 1. Afficher les adhérents \n 2. Ajouter un nouvel adhérent \n 3. Créer une session");
 
-                if (choice != "1" && choice != "2" && choice != "3") throw new ArgumentException();
-
-                switch (choice)
+                try
                 {
-                    case "1":
-                        Console.Clear();
-                        PrintMenuAdherent();
-                        break;
-                    case "2":
-                        AddAdherent();
-                        break;
-                    case "3":
-                        Console.Clear();
-                        CreateSession();
-                        break;
-                    default:
-                        break;
+                    string choice = Console.ReadLine();
+
+                    if (choice != "1" && choice != "2" && choice != "3") throw new ArgumentException();
+
+                    switch (choice)
+                    {
+                        case "1":
+                            Console.Clear();
+                            PrintMenuAdherent();
+                            break;
+                        case "2":
+                            Console.Clear();
+                            new AdherentManager(wbook, collectionCells, path, this.collectionPersonne);
+                            break;
+                        case "3":
+                            Console.Clear();
+                            CreateSession();
+                            break;
+                        default:
+                            break;
+                    }
                 }
-            }
-            catch(ArgumentException e)
-            {
-                PrintPrincipalMenu();
+                catch(ArgumentException e)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Veuillez indiquer une réponse dans un format correcte :");
+                }
             }
         }
 
@@ -61,20 +67,6 @@ namespace Cognac_Behourd.Utils
             Session session = new Session(this.collectionPersonne);
             session.GeneratePartie();
 
-            PrintPrincipalMenu();
-        }
-
-        private void AddAdherent()
-        {
-            Personne Personne = new Personne(InputAdherent("Nom"), InputAdherent("Prenom"), int.Parse(InputAdherent("Poids")), int.Parse(InputAdherent("Date d'adhesion")));
-            PrintPrincipalMenu();
-        }
-
-
-        private string InputAdherent(string prop)
-        {
-            Console.WriteLine($"{prop}:");
-            return Console.ReadLine();
         }
 
         private void PrintMenuAdherent()
@@ -92,7 +84,18 @@ namespace Cognac_Behourd.Utils
             });
 
             Console.WriteLine(menu);
-            PrintPrincipalMenu();
+        }
+
+        public static List<IXLCells> GetCollectionCellsByRowssUsed(List<IXLCells> CollectionCells, XLWorkbook wbook)
+        {
+            var ws1 = wbook.Worksheet(1).Rows();
+
+            foreach (var collumn in ws1)
+            {
+                CollectionCells.Add(collumn.Group().AsRange().CellsUsed());
+            }
+
+            return CollectionCells;
         }
     }
 }

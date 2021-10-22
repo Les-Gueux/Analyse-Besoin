@@ -1,22 +1,19 @@
 ﻿using ClosedXML.Excel;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cognac_Behourd.Utils
 {
     public class ManageExcel
     {
         private XLWorkbook excelFile;
-
-        private List<IXLCells> collectionCells;
+        private string path;
 
         public ManageExcel()
         {
-            this.excelFile = new XLWorkbook(BuildPathToExcel());
+            this.path = BuildPathToExcel();
+            this.excelFile = new XLWorkbook(this.path);
         }
 
         private string BuildPathToExcel()
@@ -50,10 +47,21 @@ namespace Cognac_Behourd.Utils
                 var poids = CollectionCells.ElementAt(2).Value.ToString();
                 var annneeAdhesion = CollectionCells.ElementAt(3).Value.ToString();
 
-                CollectionPersonne.Add(new Personne(nom, prenom, int.Parse(poids), int.Parse(annneeAdhesion)));   
+                CollectionPersonne.Add(new Personne(nom, prenom, int.Parse(poids), int.Parse(annneeAdhesion)));
             }
 
             return CollectionPersonne;
         }
+
+        public XLWorkbook GetExcelFile() 
+        {
+            return this.excelFile;
+        }
+
+        public string GetPath()
+        {
+            return this.path;
+        }
+
     }
 }

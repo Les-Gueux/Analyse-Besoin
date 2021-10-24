@@ -75,6 +75,44 @@ namespace Cognac_BehourdTest
                 moyenne1 > 91 && moyenne2 > 91);
         }
 
+        [TestMethod]
+        public void Verifier_que_les_equipes_sont_equlibre_en_age()
+        {
+            List<Personne> ListeParticipant = new List<Personne>();
+
+            ListeParticipant.Add(new Personne("Jo", "e", 65, 2004));
+
+            ListeParticipant.Add(new Personne("Yank", "a", 75, 1993));
+
+            ListeParticipant.Add(new Personne("Jack", "b", 52, 2005));
+
+            ListeParticipant.Add(new Personne("Ber", "c", 70, 2001));
+
+            //ListeParticipant.Add(new Personne("Frank", "d", 72, 1991));
+
+            Partie partie = new Partie(ListeParticipant);
+
+            partie.GenerateCollectionEquipe();
+
+            int i1 = partie.CollectionEquipes[0].ListePersonne.Count;
+            int i2 = partie.CollectionEquipes[1].ListePersonne.Count;
+            float moyenne1 = 0;
+            float moyenne2 = 0;
+
+            foreach (Personne pe in partie.CollectionEquipes[0].ListePersonne)
+            {
+                moyenne1 = moyenne1 + pe.Anciente;
+            }
+            moyenne1 = moyenne1 / i1;
+            foreach (Personne pe in partie.CollectionEquipes[0].ListePersonne)
+            {
+                moyenne2 = moyenne2 + pe.Anciente;
+            }
+            moyenne2 = moyenne2 / i2;
+
+            Assert.IsTrue(moyenne1 - 5 <= moyenne2 && moyenne2 <= moyenne1 + 5);
+        }
+
 
     }
 }

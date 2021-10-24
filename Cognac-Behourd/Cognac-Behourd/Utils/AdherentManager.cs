@@ -6,14 +6,19 @@ namespace Cognac_Behourd.Utils
 {
     class AdherentManager
     {
-        public AdherentManager(XLWorkbook wbook, List<IXLCells> collectionCells, string path, List<Personne> collectionPersonnes)
+        public AdherentManager()
+        {
+            
+        }
+
+        public void SelectTypeOfAdherent(XLWorkbook wbook, List<IXLCells> collectionCells, string path, List<Personne> collectionPersonnes)
         {
             while (true)
             {
                 Console.WriteLine("Est ce un nouvel adhérent ou un visiteur ? \n 1. Adhérent \n 2. Visiteur");
                 var input = Console.ReadLine();
-                if (input == "1") { AddNewMember(wbook, collectionCells, path, collectionPersonnes); Console.Clear(); Console.WriteLine("Le nouvel adhérent à été ajouté!"); return; }
-                else if (input == "2") { AddNewVisitor(collectionPersonnes); Console.Clear(); Console.WriteLine("Le nouveau visiteur à été ajouté!"); return; }
+                if (input == "1") { AddNewMember(wbook, collectionCells, path, collectionPersonnes); return; }
+                else if (input == "2") { AddNewVisitor(collectionPersonnes); return; }
                 else { Console.Clear(); Console.WriteLine("Veuillez indiquer une réponse valide!"); }
             }
         }
@@ -68,6 +73,8 @@ namespace Cognac_Behourd.Utils
             wbook.SaveAs(path);
 
             collectionPersonnes.Add(new Personne(nom, prenom, int.Parse(poids), int.Parse(ancienete)));
+            Console.Clear(); 
+            Console.WriteLine("Le nouvel adhérent à été ajouté!");
 
         }
 
@@ -82,8 +89,10 @@ namespace Cognac_Behourd.Utils
                 var ancienete = InputAdherent("Date d'adhesion", "int");
 
                 collectionPersonnes.Add(new Personne(nom, prenom, int.Parse(poids), int.Parse(ancienete)));
+                Console.Clear();
+                Console.WriteLine("Le nouveau visiteur à été ajouté!");
             }
-            else Console.WriteLine("Vous n'avez pas l'âge requis pour jouer");
+            else { Console.Clear(); Console.WriteLine("Vous n'avez pas l'âge requis pour jouer"); }
 
         }
 

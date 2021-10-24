@@ -1,3 +1,4 @@
+using Cognac_Behourd;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -23,9 +24,9 @@ namespace Cognac_BehourdTest
 
             Partie partie = new Partie(ListeParticipant);
 
-            partie.lancer_partie();
+            partie.GenerateCollectionEquipe();
 
-            Assert.Equals(partie.ListeEquipe[0].Count, partie.ListeEquipe[1].Count);
+            Assert.Equals(partie.CollectionEquipes[0].ListePersonne.Count, partie.CollectionEquipes[1].ListePersonne.Count);
         }
 
         [TestMethod]
@@ -42,23 +43,23 @@ namespace Cognac_BehourdTest
 
             ListeParticipant.Add(new Personne("Ber", "c", 70, 2001));
 
-            ListeParticipant.Add(Personne("Frank", "d", 72, 1991));
+            ListeParticipant.Add(new Personne("Frank", "d", 72, 1991));
 
             Partie partie = new Partie(ListeParticipant);
 
-            partie.lancer_partie();
+            partie.GenerateCollectionEquipe();
 
-            int i1 = partie.ListeEquipe[0].ListePersonne.Count;
-            int i2 = partie.ListeEquipe[1].ListePersonne.Count;
+            int i1 = partie.CollectionEquipes[0].ListePersonne.Count;
+            int i2 = partie.CollectionEquipes[1].ListePersonne.Count;
             float moyenne1 = 0;
             float moyenne2 = 0;
 
-            foreach (Personne pe in partie.ListeEquipe[0].ListePersonne)
+            foreach (Personne pe in partie.CollectionEquipes[0].ListePersonne)
             {
                 moyenne1 = moyenne1 + pe.Poid;
             }
             moyenne1 = moyenne1 / i1;
-            foreach (Personne pe in partie.ListeEquipe[0].ListePersonne)
+            foreach (Personne pe in partie.CollectionEquipes[0].ListePersonne)
             {
                 moyenne2 = moyenne2 + pe.Poid;
             }

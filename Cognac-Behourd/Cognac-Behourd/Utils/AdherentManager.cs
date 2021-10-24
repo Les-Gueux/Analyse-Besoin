@@ -37,14 +37,29 @@ namespace Cognac_Behourd.Utils
                 {
                     try
                     {
-                        int.Parse(input);
-                        // S'il ne génère pas d'erreur, alors l'input sera considéré comme valide
+                        // S'il ne génère pas d'erreur, alors l'input sera considéré comme valide sinon renvoie une exception.
+                        int parse = int.Parse(input);
+                        if(prop == "Date d'adhesion") {
+                            if (parse < 1980 || parse > 2021)
+                            {
+                                throw new Exception("Veuillez indiquer une année valide :");
+                            }
+                        }
+                        else if (prop == "Poids")
+                        {
+                            if (parse < 30 || parse > 635)
+                            {
+                                throw new Exception("Veuillez indiquer un poid correspondant à une constitution 'réaliste':");
+                            }
+                        }
+
                         isValid = true;
 
                     }
                     catch (Exception ex)
                     {
-                        errorMessage = "Veuillez indiquer une réponse dans un format correcte :";
+                        errorMessage = ex.Message;
+                        if (errorMessage == "Input string was not in a correct format.") errorMessage = "Veuillez indiquer une réponse dans un format correcte :";
                     }
                 }
                 else
@@ -61,8 +76,8 @@ namespace Cognac_Behourd.Utils
             var ws1 = wbook.Worksheet(1);
 
             string columnNumber = Convert.ToString(getLastCell(CollectionCells) + 1);
-            var nom = InputAdherent("Nom", "sring");
-            var prenom = InputAdherent("Prenom", "sring");
+            var nom = InputAdherent("Nom", "string");
+            var prenom = InputAdherent("Prenom", "string");
             var poids = InputAdherent("Poids", "int");
             var ancienete = InputAdherent("Date d'adhesion", "int");
             ws1.Cell("A" + columnNumber).RichText.AddText(nom);

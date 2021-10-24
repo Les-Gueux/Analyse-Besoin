@@ -8,10 +8,12 @@ namespace Cognac_Behourd.Utils
 
         private List<Personne> collectionPersonne;
         private ManageExcel manageExcel;
+        private AdherentManager managerAdherent;
 
         public MenuManager()
         {
             this.manageExcel = new ManageExcel();
+            this.managerAdherent = new AdherentManager();
             this.collectionPersonne = this.manageExcel.GetPersonnes();
 
             PrintPrincipalMenu();
@@ -42,7 +44,7 @@ namespace Cognac_Behourd.Utils
                             break;
                         case "2":
                             Console.Clear();
-                            new AdherentManager(wbook, collectionCells, path, this.collectionPersonne);
+                            this.managerAdherent.SelectTypeOfAdherent(wbook, collectionCells, path, this.collectionPersonne);
                             break;
                         case "3":
                             Console.Clear();

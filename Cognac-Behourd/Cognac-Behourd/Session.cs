@@ -28,7 +28,6 @@ namespace Cognac_Behourd
                     Partie partie = new(this.ListePersonnes);
                     partie.GenerateCollectionEquipe();
                     printEquipesPartie(partie);
-                    GeneratePartie();
                 }
 
             }

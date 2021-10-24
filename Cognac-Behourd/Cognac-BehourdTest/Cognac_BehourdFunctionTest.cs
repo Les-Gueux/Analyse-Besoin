@@ -26,7 +26,7 @@ namespace Cognac_BehourdTest
 
             partie.GenerateCollectionEquipe();
 
-            Assert.Equals(partie.CollectionEquipes[0].ListePersonne.Count, partie.CollectionEquipes[1].ListePersonne.Count);
+            Assert.AreEqual(partie.CollectionEquipes[0].ListePersonne.Count, partie.CollectionEquipes[1].ListePersonne.Count);
         }
 
         [TestMethod]
@@ -43,7 +43,6 @@ namespace Cognac_BehourdTest
 
             ListeParticipant.Add(new Personne("Ber", "c", 70, 2001));
 
-            ListeParticipant.Add(new Personne("Frank", "d", 72, 1991));
 
             Partie partie = new Partie(ListeParticipant);
 
@@ -88,7 +87,6 @@ namespace Cognac_BehourdTest
 
             ListeParticipant.Add(new Personne("Ber", "c", 70, 2001));
 
-            //ListeParticipant.Add(new Personne("Frank", "d", 72, 1991));
 
             Partie partie = new Partie(ListeParticipant);
 

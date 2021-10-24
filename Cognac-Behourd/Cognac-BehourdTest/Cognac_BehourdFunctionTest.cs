@@ -113,6 +113,24 @@ namespace Cognac_BehourdTest
             Assert.IsTrue(moyenne1 - 5 <= moyenne2 && moyenne2 <= moyenne1 + 5);
         }
 
+        [TestMethod]
+        public void Vérifier_que_les_deux_équipes_ont_bien_été_créé()
+        {
+            List<Personne> ListeParticipant = new List<Personne>();
 
+            ListeParticipant.Add(new Personne("Jo", "e", 65, 2004));
+
+            ListeParticipant.Add(new Personne("Yank", "a", 75, 1993));
+
+            ListeParticipant.Add(new Personne("Jack", "b", 52, 2005));
+
+            ListeParticipant.Add(new Personne("Ber", "c", 70, 2001));
+
+            Partie partie = new Partie(ListeParticipant);
+
+            partie.GenerateCollectionEquipe();
+
+            Assert.IsTrue(partie.CollectionEquipes.Count == 2);
+        }
     }
 }

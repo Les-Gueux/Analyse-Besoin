@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cognac_Behourd.Utils;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace Cognac_Behourd
     class Session
     {
         private List<Personne> ListePersonnes;
+        private AdherentManager managerAdherent;
 
 
         public Session(List<Personne> listePersonnes)
@@ -16,25 +18,40 @@ namespace Cognac_Behourd
 
         public void GeneratePartie()
         {
-            try
+            var choice = "";
+            while (choice != "q")
             {
-                Console.WriteLine("Voullez vous créer une partie ? oui: o, non: n");
-                var choice = Console.ReadLine();
-
-                if (choice != "o" && choice != "n") throw new ArgumentException();
-
-                if (choice == "o")
+                try
                 {
-                    Partie partie = new(this.ListePersonnes);
-                    partie.GenerateCollectionEquipe();
-                    printEquipesPartie(partie);
+                    Console.WriteLine("Voulez vous créer une partie ? oui: o, non: n, quiter: q");
+                    choice = Console.ReadLine();
+
+                    if (choice != "o" && choice != "n" && choice != "q") throw new ArgumentException();
+
+                    if (choice == "o")
+                    {
+                        Console.WriteLine("Voulez vous ajouter un visiteur ? oui: o, non: n");
+                        choice = Console.ReadLine();
+
+                        if (choice != "o" && choice != "n") throw new ArgumentException();
+
+                        if( choice == "o")
+                        {
+                            AdherentManager.AddNewVisitor(this.ListePersonnes);
+                        }
+                             
+                        Partie partie = new(this.ListePersonnes);
+                        partie.GenerateCollectionEquipe();
+                        printEquipesPartie(partie);
+                    }
+
+                }
+                catch (ArgumentException)
+                {
+                    Console.Clear();
+                    GeneratePartie();
                 }
 
-            }
-            catch (ArgumentException e)
-            {
-                Console.Clear();
-                GeneratePartie();
             }
         }
 

@@ -4,7 +4,7 @@ using ClosedXML.Excel;
 
 namespace Cognac_Behourd.Utils
 {
-    class AdherentManager
+   public class AdherentManager
     {
         public AdherentManager()
         {
@@ -72,17 +72,13 @@ namespace Cognac_Behourd.Utils
 
         public static void RemoveUser(List<Personne> listePersonnes, string inputRemovePersonne)
         {
-            var index = 0;
-            var i = 0;
-            foreach (var item in listePersonnes)
+            for (int i = 0; i < listePersonnes.Count; i++)
             {
-                if (item.Nom == inputRemovePersonne)
+                if (listePersonnes[i].Nom == inputRemovePersonne)
                 {
-                    i = index;
+                    listePersonnes.RemoveAt(i);
                 }
-                index++;
             }
-            listePersonnes.RemoveAt(i);
             Console.WriteLine("L'utilisateur à été supprimé s'il existe!");
         }
 

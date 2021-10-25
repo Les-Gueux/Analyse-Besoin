@@ -1,4 +1,5 @@
 using Cognac_Behourd;
+using Cognac_Behourd.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -152,6 +153,44 @@ namespace Cognac_BehourdTest
             partie.GenerateCollectionEquipe();
 
             Assert.IsTrue(partie.CollectionEquipes.Count == 2);
+        }
+
+        [TestMethod]
+        public void Vérifier_quun_joueur_a_bien_ete_retirer()
+        {
+
+            List<Personne> ListeParticipant = new List<Personne>();
+
+            ListeParticipant.Add(new Personne("Jo", "e", 65, 2004));
+
+            ListeParticipant.Add(new Personne("Yank", "a", 75, 1993));
+
+            ListeParticipant.Add(new Personne("Jack", "b", 52, 2005));
+
+            ListeParticipant.Add(new Personne("Ber", "c", 70, 2001));
+
+            AdherentManager.RemoveUser(ListeParticipant, "Jack");
+
+            Assert.IsTrue(ListeParticipant.Count == 3);
+        }
+
+        [TestMethod]
+        public void Vérifier_quaucun_joueur_na_ete_retire()
+        {
+
+            List<Personne> ListeParticipant = new List<Personne>();
+
+            ListeParticipant.Add(new Personne("Jo", "e", 65, 2004));
+
+            ListeParticipant.Add(new Personne("Yank", "a", 75, 1993));
+
+            ListeParticipant.Add(new Personne("Jack", "b", 52, 2005));
+
+            ListeParticipant.Add(new Personne("Ber", "c", 70, 2001));
+
+            AdherentManager.RemoveUser(ListeParticipant, "Aatrox");
+
+            Assert.IsTrue(ListeParticipant.Count == 4);
         }
     }
 }

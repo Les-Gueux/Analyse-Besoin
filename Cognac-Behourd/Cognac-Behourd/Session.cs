@@ -19,14 +19,14 @@ namespace Cognac_Behourd
         public void GeneratePartie()
         {
             var choice = "";
-            while (choice != "q")
+            while (choice != "n")
             {
                 try
                 {
-                    Console.WriteLine("Voulez vous créer une partie ? oui: o, non: n, quiter: q");
+                    Console.WriteLine("Voulez vous créer une partie ? oui: o, non: n");
                     choice = Console.ReadLine();
 
-                    if (choice != "o" && choice != "n" && choice != "q") throw new ArgumentException();
+                    if (choice != "o" && choice != "n" ) throw new ArgumentException();
 
                     if (choice == "o")
                     {

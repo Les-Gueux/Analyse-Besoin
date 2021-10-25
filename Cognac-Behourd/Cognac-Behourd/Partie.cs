@@ -43,12 +43,14 @@ namespace Cognac_Behourd
             var moyenneWeightByEquipe = this.CollectionPersonnes.Sum(p => p.Poid) / nbrPersonneByEquipe;
             Personne personne = null;
 
-            Equipe equipe1 = new("E1", this.CollectionPersonnes.Skip(nbrPersonneByEquipe + 1).ToList());
-            Equipe equipe2 = new("E2", this.CollectionPersonnes.SkipLast(nbrPersonneByEquipe + 1).ToList());
+            Equipe equipe1 = new("E1", this.CollectionPersonnes.Skip(nbrPersonneByEquipe).ToList());
+            Equipe equipe2 = new("E2", this.CollectionPersonnes.SkipLast(nbrPersonneByEquipe).ToList());
 
             if (this.CollectionPersonnes.Count % NUMBER_MAX_BY_EQU != 0)
             {
                 personne = this.CollectionPersonnes.ElementAt(nbrPersonneByEquipe);
+                equipe1.ListePersonne.Remove(personne);
+                equipe2.ListePersonne.Remove(personne);
             }
 
             if(equipe1.TotalWeight == equipe2.TotalWeight && personne == null)

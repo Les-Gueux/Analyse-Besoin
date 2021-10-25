@@ -70,6 +70,22 @@ namespace Cognac_Behourd.Utils
             return input;
         }
 
+        public static void RemoveUser(List<Personne> listePersonnes, string inputRemovePersonne)
+        {
+            var index = 0;
+            var i = 0;
+            foreach (var item in listePersonnes)
+            {
+                if (item.Nom == inputRemovePersonne)
+                {
+                    i = index;
+                }
+                index++;
+            }
+            listePersonnes.RemoveAt(i);
+            Console.WriteLine("L'utilisateur à été supprimé s'il existe!");
+        }
+
         public static void AddNewMember(XLWorkbook wbook, List<IXLCells> CollectionCells, string path, List<Personne> collectionPersonnes)
         {
 

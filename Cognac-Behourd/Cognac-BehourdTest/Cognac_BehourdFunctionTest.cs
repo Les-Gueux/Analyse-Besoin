@@ -30,6 +30,29 @@ namespace Cognac_BehourdTest
         }
 
         [TestMethod]
+        public void vérifier_que_les_équipes_sont_equlibré_en_nombre_quand_les_joueur_sont_impaire()
+        {
+
+            List<Personne> ListeParticipant = new List<Personne>();
+
+            ListeParticipant.Add(new Personne("Jo", "e", 65, 2004));
+
+            ListeParticipant.Add(new Personne("Yank", "a", 75, 1993));
+
+            ListeParticipant.Add(new Personne("Jack", "b", 52, 2005));
+
+            ListeParticipant.Add(new Personne("Ber", "c", 70, 2001));
+
+            ListeParticipant.Add(new Personne("azrturos", "d", 55, 2010));
+
+            Partie partie = new Partie(ListeParticipant);
+
+            partie.GenerateCollectionEquipe();
+
+            Assert.AreEqual(partie.CollectionEquipes[0].ListePersonne.Count + partie.CollectionEquipes[1].ListePersonne.Count, ListeParticipant.Count);
+        }
+
+        [TestMethod]
         public void Verifier_que_les_equipes_sont_equlibre_en_poid_quand_les_moyenne_ont_mois_de_10kg_de_difference()
         {
 
@@ -75,7 +98,7 @@ namespace Cognac_BehourdTest
         }
 
         [TestMethod]
-        public void Verifier_que_les_equipes_sont_equlibre_en_age()
+        public void Verifier_que_les_equipes_sont_equlibre_en_anciennete()
         {
             List<Personne> ListeParticipant = new List<Personne>();
 

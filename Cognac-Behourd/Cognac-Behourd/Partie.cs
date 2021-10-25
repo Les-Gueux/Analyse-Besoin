@@ -46,8 +46,6 @@ namespace Cognac_Behourd
             Equipe equipe1 = new("E1", this.CollectionPersonnes.Skip(nbrPersonneByEquipe).ToList());
             Equipe equipe2 = new("E2", this.CollectionPersonnes.SkipLast(nbrPersonneByEquipe).ToList());
 
-            Console.WriteLine(this.CollectionPersonnes.ToString());
-
             if (this.CollectionPersonnes.Count % NUMBER_MAX_BY_EQU != 0)
             {
                 personne = this.CollectionPersonnes.ElementAt(nbrPersonneByEquipe);

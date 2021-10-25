@@ -19,37 +19,53 @@ namespace Cognac_Behourd
         public void GeneratePartie()
         {
             var choice = "";
-            while (choice != "n")
+            bool isGameIsEnd = false;
+            while (isGameIsEnd == false)
             {
                 try
                 {
-                    Console.WriteLine("Voulez vous créer une partie ? oui: o, non: n");
+                    Console.WriteLine("Voulez vous créer une nouvelle manche ? oui: o, non: n");
                     choice = Console.ReadLine();
 
                     if (choice != "o" && choice != "n" ) throw new ArgumentException();
 
-                    if (choice == "o")
+                    else if (choice == "o")
                     {
-                        Console.WriteLine("Voulez vous ajouter un visiteur ? oui: o, non: n");
-                        choice = Console.ReadLine();
-
-                        if (choice != "o" && choice != "n") throw new ArgumentException();
-
-                        if( choice == "o")
+                        var inputVisitor = "";
+                        while (inputVisitor != "3")
                         {
-                            AdherentManager.AddNewVisitor(this.ListePersonnes);
+                            Console.WriteLine("Voulez vous avant de créer la manche : : \n\n 1. Ajouter un visiteur \n 2. Retirer un joueur \n 3. Continuer");
+                            inputVisitor = Console.ReadLine();
+
+                            if (inputVisitor != "1" && inputVisitor != "2" && inputVisitor != "3") throw new ArgumentException();
+
+                            if (inputVisitor == "1")
+                            {
+                                AdherentManager.AddNewVisitor(this.ListePersonnes);
+                            }
+                            if (inputVisitor == "2")
+                            {
+                                Console.WriteLine("Veuillez indiquer le nom du joueur à retirer de la partie");
+                                var inputRemovePersonne = "";
+                                inputRemovePersonne = Console.ReadLine();
+                                AdherentManager.RemoveUser(this.ListePersonnes, inputRemovePersonne);
+                            }
                         }
-                             
                         Partie partie = new(this.ListePersonnes);
                         partie.GenerateCollectionEquipe();
                         printEquipesPartie(partie);
+                    }
+
+                    else if (choice == "n")
+                    {
+                        isGameIsEnd = true;
                     }
 
                 }
                 catch (ArgumentException)
                 {
                     Console.Clear();
-                    GeneratePartie();
+                    Console.WriteLine("Veuillez indiquer une réponse valide!");
                 }
 
             }
